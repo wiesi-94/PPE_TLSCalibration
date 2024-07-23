@@ -1,0 +1,306 @@
+PPE TLS calibration solution
+By Yue Pan & Fandré Josianne
+---------I. Data Import--------
+Import [77] OPs from [Final_data\Finaldata_3\OPs\PPE_TLS_Fb_OP.txt] done
+Import [4] Scans from [Final_data\Finaldata_3\Scans\] done
+---------II. Cart2Sphe--------
+Cart2Spher convertion done for [4] scans
+---------III. Pre-plausibility check--------
+Pre-plausibility check done for [308] measurements, [0] outliers found.
+---------IV. Assign initial guess of unknowns--------
+Assign the initial value for [30] unknowns done
+APs:
+a0 = 0.00000000 ( m )
+b1 = 0.00000000 (rad)
+b2 = 0.00000000 (rad)
+c0 = -0.02000000 (rad)
+
+HBT = 0.00000000 (rad)
+
+VBT = 0.00000000 (rad)
+
+EPs of scan [1]:
+omega =    1.623 (deg)
+phi   =   -0.288 (deg)
+kappa =  -88.190 (deg)
+X_s   =   -2.643 ( m )
+Y_s   =    7.344 ( m )
+Z_s   =    1.481 ( m )
+
+EPs of scan [2]:
+omega =    1.321 (deg)
+phi   =    1.140 (deg)
+kappa =    9.623 (deg)
+X_s   =   -2.670 ( m )
+Y_s   =    7.358 ( m )
+Z_s   =    1.488 ( m )
+
+EPs of scan [3]:
+omega =    1.960 (deg)
+phi   =    0.631 (deg)
+kappa =  -86.392 (deg)
+X_s   =   -2.692 ( m )
+Y_s   =   13.627 ( m )
+Z_s   =    1.463 ( m )
+
+EPs of scan [4]:
+omega =    0.888 (deg)
+phi   =   -0.115 (deg)
+kappa = -172.489 (deg)
+X_s   =   -2.705 ( m )
+Y_s   =   13.652 ( m )
+Z_s   =    1.464 ( m )
+
+---------V. Apply adjustment iteratively--------
+Assign the obsevartion vector for [924] observations done
+Assign the initial weight matrix done
+--------Danish Method iteration [1]--------
+adjustment iteration [1] done
+adjustment iteration [2] done
+adjustment iteration [3] done
+adjustment iteration [4] done
+adjustment iteration [5] done
+adjustment iteration [6] done
+adjustment iteration [7] done
+adjustment iteration [8] done
+adjustment iteration [9] done
+adjustment iteration [10] done
+Inner-loop Converged
+Current adjustment results of the unknown vector:
+APs:
+a0 = -0.33706985 ( m )
+b1 = -0.00001992 (rad)
+b2 = 0.11853660 (rad)
+c0 = -0.05053694 (rad)
+
+HBT = -0.16501112 (rad)
+
+VBT = 0.11854299 (rad)
+
+EPs of scan [1]:
+omega =   -3.961 (deg)
+phi   =   -2.777 (deg)
+kappa =  -88.430 (deg)
+X_s   =   -2.790 ( m )
+Y_s   =    7.198 ( m )
+Z_s   =    0.091 ( m )
+
+EPs of scan [2]:
+omega =   -0.477 (deg)
+phi   =    1.555 (deg)
+kappa =    9.657 (deg)
+X_s   =   -2.711 ( m )
+Y_s   =    7.317 ( m )
+Z_s   =    0.080 ( m )
+
+EPs of scan [3]:
+omega =   -4.110 (deg)
+phi   =    1.504 (deg)
+kappa =  -86.295 (deg)
+X_s   =   -2.889 ( m )
+Y_s   =   13.697 ( m )
+Z_s   =    0.038 ( m )
+
+EPs of scan [4]:
+omega =   -3.093 (deg)
+phi   =    2.599 (deg)
+kappa = -173.666 (deg)
+X_s   =   -2.245 ( m )
+Y_s   =   14.371 ( m )
+Z_s   =   -0.144 ( m )
+
+[526] candidate outliers found by Danish Method, downweight them.
+--------Danish Method iteration [2]--------
+adjustment iteration [1] done
+adjustment iteration [2] done
+adjustment iteration [3] done
+adjustment iteration [4] done
+adjustment iteration [5] done
+Inner-loop Converged
+Current adjustment results of the unknown vector:
+APs:
+a0 = -0.01558817 ( m )
+b1 = -0.00000116 (rad)
+b2 = 0.01390157 (rad)
+c0 = -0.02656903 (rad)
+
+HBT = -0.00229713 (rad)
+
+VBT = 0.01389253 (rad)
+
+EPs of scan [1]:
+omega =   -0.897 (deg)
+phi   =   -0.094 (deg)
+kappa =  -88.241 (deg)
+X_s   =   -2.666 ( m )
+Y_s   =    7.333 ( m )
+Z_s   =    1.473 ( m )
+
+EPs of scan [2]:
+omega =   -0.449 (deg)
+phi   =    1.344 (deg)
+kappa =    9.679 (deg)
+X_s   =   -2.693 ( m )
+Y_s   =    7.363 ( m )
+Z_s   =    1.459 ( m )
+
+EPs of scan [3]:
+omega =   -0.604 (deg)
+phi   =    0.812 (deg)
+kappa =  -86.361 (deg)
+X_s   =   -2.723 ( m )
+Y_s   =   13.630 ( m )
+Z_s   =    1.478 ( m )
+
+EPs of scan [4]:
+omega =   -1.103 (deg)
+phi   =    0.128 (deg)
+kappa = -172.557 (deg)
+X_s   =   -2.658 ( m )
+Y_s   =   13.679 ( m )
+Z_s   =    1.465 ( m )
+
+[43] candidate outliers found by Danish Method, downweight them.
+--------Danish Method iteration [3]--------
+adjustment iteration [1] done
+adjustment iteration [2] done
+adjustment iteration [3] done
+Inner-loop Converged
+Current adjustment results of the unknown vector:
+APs:
+a0 = 0.00124820 ( m )
+b1 = -0.00000400 (rad)
+b2 = 0.00399144 (rad)
+c0 = -0.02115895 (rad)
+
+HBT = 0.01301938 (rad)
+
+VBT = 0.00398473 (rad)
+
+EPs of scan [1]:
+omega =   -0.383 (deg)
+phi   =    0.085 (deg)
+kappa =  -88.222 (deg)
+X_s   =   -2.657 ( m )
+Y_s   =    7.335 ( m )
+Z_s   =    1.596 ( m )
+
+EPs of scan [2]:
+omega =   -0.306 (deg)
+phi   =    0.962 (deg)
+kappa =    9.670 (deg)
+X_s   =   -2.690 ( m )
+Y_s   =    7.375 ( m )
+Z_s   =    1.594 ( m )
+
+EPs of scan [3]:
+omega =   -0.027 (deg)
+phi   =    0.599 (deg)
+kappa =  -86.337 (deg)
+X_s   =   -2.713 ( m )
+Y_s   =   13.619 ( m )
+Z_s   =    1.602 ( m )
+
+EPs of scan [4]:
+omega =   -0.596 (deg)
+phi   =   -0.150 (deg)
+kappa = -172.504 (deg)
+X_s   =   -2.692 ( m )
+Y_s   =   13.650 ( m )
+Z_s   =    1.601 ( m )
+
+[4] candidate outliers found by Danish Method, downweight them.
+--------Danish Method iteration [4]--------
+adjustment iteration [1] done
+adjustment iteration [2] done
+adjustment iteration [3] done
+Inner-loop Converged
+Current adjustment results of the unknown vector:
+APs:
+a0 = 0.00216379 ( m )
+b1 = -0.00000401 (rad)
+b2 = 0.00282822 (rad)
+c0 = -0.02066663 (rad)
+
+HBT = 0.01359421 (rad)
+
+VBT = 0.00282143 (rad)
+
+EPs of scan [1]:
+omega =   -0.334 (deg)
+phi   =    0.090 (deg)
+kappa =  -88.222 (deg)
+X_s   =   -2.657 ( m )
+Y_s   =    7.335 ( m )
+Z_s   =    1.600 ( m )
+
+EPs of scan [2]:
+omega =   -0.283 (deg)
+phi   =    0.905 (deg)
+kappa =    9.664 (deg)
+X_s   =   -2.690 ( m )
+Y_s   =    7.377 ( m )
+Z_s   =    1.600 ( m )
+
+EPs of scan [3]:
+omega =    0.022 (deg)
+phi   =    0.586 (deg)
+kappa =  -86.338 (deg)
+X_s   =   -2.712 ( m )
+Y_s   =   13.619 ( m )
+Z_s   =    1.606 ( m )
+
+EPs of scan [4]:
+omega =   -0.559 (deg)
+phi   =   -0.163 (deg)
+kappa = -172.496 (deg)
+X_s   =   -2.692 ( m )
+Y_s   =   13.643 ( m )
+Z_s   =    1.607 ( m )
+
+[4] candidate outliers found by Danish Method, downweight them.
+---------VI. Calibration results output and visualization--------
+Final adjustment results of the unknown vector:
+APs:
+a0 = 0.00216379 ( m )	+-0.00116347 ( m )
+b1 = -0.00000401 (rad)	+-0.00000055 (rad)
+b2 = 0.00282822 (rad)	+-0.00032713 (rad)
+c0 = -0.02066663 (rad)	+-0.00012222 (rad)
+
+HBT = 0.01359421 (rad)	+-0.00019374 (rad)
+VBT = 0.00282143 (rad)	+-0.00032712 (rad)
+
+EPs of scan [1]:
+omega =   -0.334 (deg)	+-12.63 (mdeg)
+phi   =    0.090 (deg)	+- 8.19 (mdeg)
+kappa =  -88.222 (deg)	+- 5.84 (mdeg)
+X_s   =   -2.657 ( m )	+- 1.27 ( mm )
+Y_s   =    7.335 ( m )	+- 1.06 ( mm )
+Z_s   =    1.600 ( m )	+- 1.83 ( mm )
+
+EPs of scan [2]:
+omega =   -0.283 (deg)	+-11.48 (mdeg)
+phi   =    0.905 (deg)	+- 9.11 (mdeg)
+kappa =    9.664 (deg)	+- 5.87 (mdeg)
+X_s   =   -2.690 ( m )	+- 1.27 ( mm )
+Y_s   =    7.377 ( m )	+- 1.09 ( mm )
+Z_s   =    1.600 ( m )	+- 1.84 ( mm )
+
+EPs of scan [3]:
+omega =    0.022 (deg)	+-13.05 (mdeg)
+phi   =    0.586 (deg)	+- 7.54 (mdeg)
+kappa =  -86.338 (deg)	+- 5.87 (mdeg)
+X_s   =   -2.712 ( m )	+- 1.26 ( mm )
+Y_s   =   13.619 ( m )	+- 1.09 ( mm )
+Z_s   =    1.606 ( m )	+- 1.90 ( mm )
+
+EPs of scan [4]:
+omega =   -0.559 (deg)	+-11.01 (mdeg)
+phi   =   -0.163 (deg)	+- 9.29 (mdeg)
+kappa = -172.496 (deg)	+- 5.95 (mdeg)
+X_s   =   -2.692 ( m )	+- 1.25 ( mm )
+Y_s   =   13.643 ( m )	+- 1.15 ( mm )
+Z_s   =    1.607 ( m )	+- 1.91 ( mm )
+
+[4] outliers found, [0] by plausibility check, [4] by danish method
+>> 

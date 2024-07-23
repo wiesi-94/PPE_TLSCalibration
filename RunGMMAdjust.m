@@ -68,7 +68,13 @@ while (iter_count < adjustment_data_struct.max_iter_count && ~is_converged)
           y_cur =y(ob_index:ob_index+2,1);
           b_vec(ob_index:ob_index+2 ,1) = y_cur - obs; % current residual
           ob_index = ob_index+3;
-       end
+
+          if (x_0(6) > 0.1 || x_0(6) < -0.1)
+              x_0(6) = 0.0;
+              disp ('AP A0 fare off -> set to zero');
+          end
+
+         end
     end
     
     % apply the outlier mask

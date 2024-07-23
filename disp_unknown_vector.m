@@ -5,18 +5,17 @@ function disp_unknown_vector(x_vec, ap_count, scan_count)
 % - ap_count: number of aps
 % - scan_count: number of scans
 
+
+global unknown_name
 deg2rad_ratio=pi/180;
 
-% disp('APs:');
-% for i=1:ap_count
-%     fprintf('%.3f\t',x_vec(i)); 
-% end
-% fprintf('\n'); 
-disp('APs:')
-fprintf('a0 = %8.3f ( m )\n',x_vec(1));
-fprintf('b1 = %8.3f (deg)\n',x_vec(2)/deg2rad_ratio);
-fprintf('b2 = %8.3f (deg)\n',x_vec(3)/deg2rad_ratio);
-fprintf('c0 = %8.3f (deg)\n\n',x_vec(4)/deg2rad_ratio);
+ disp('APs:');
+ for i=1:ap_count
+    fprintf('%s = %.8f\n',string(unknown_name(i)),x_vec(i)); 
+ end
+ fprintf('\n'); 
+
+
 
 for i=1:scan_count
     disp(['EPs of scan [', num2str(i), ']:']); 

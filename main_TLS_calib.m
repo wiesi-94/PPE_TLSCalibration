@@ -28,27 +28,32 @@ disp('By Yue Pan & Fandré Josianne');
 % Define constants
 % measurment standard deviation:
 deg2rad_ratio=pi/180;
-sigma_0 = 0.001;                       % prior unit weight standard deviation (m)
-sigma_rho = 0.002;                     % range measurment (m)
-sigma_theta = 0.005*deg2rad_ratio;     % horizontal angle (rad) 
-sigma_alpha = 0.005*deg2rad_ratio;     % vertical angle (rad)
+sigma_0 = 0.0001;                       % prior unit weight standard deviation (m)
+sigma_rho = 0.0001;                     % range measurment (m)
+sigma_theta = 0.0002*deg2rad_ratio;     % horizontal angle (rad) '00019
+sigma_alpha = 0.00018*deg2rad_ratio;     % vertical angle (rad) '00017
+%% 
 
 % delta_d for numerical derivative
 delta_t = 1e-8;                        
 
 % iteration thresholds
-max_in_iter=20;                        % max iteration number for the internal loop (for gauss-markov parameter estimation)
-max_ex_iter=10;                        % max iteration number for the external loop (for danish outlier detection and removal)
+max_in_iter=15;                        % max iteration number for the internal loop (for gauss-markov parameter estimation)
+max_ex_iter=10;                        % max iteration number for the external loop (for danish outlier detectin and removal)
 incre_ratio_thre = 1e-5;               % internal loop convergence condition
 danish_converge_thre = 1e-2;           % external loop convergence condition
 
 % prior knowledge for observation plausibility check
-max_rou = 10.0;                        % max plausible range measurement value (m)  
-max_alpha = 80*deg2rad_ratio;          % max plausible elevation angle value (rad)
+max_rou = 25;                        % max plausible range measurement value (m)  
+max_alpha = 260*deg2rad_ratio;          % max plausible elevation angle value (rad)
 max_incidence = 65*deg2rad_ratio;      % amx plausible incidence angle value (rad)
 
 % outlier threshold for danish method
-danish_ratio_thre = 2.0;               % x sigma
+danish_ratio_thre = 1000;               % x sigma 2.132
+
+global unknown_name
+unknown_name ={'B4','B5','B6', 'B7', 'A0', 'C0', 'C1', 'C3'};
+
 
 %% I. Import data
 
@@ -62,10 +67,10 @@ disp('---------I. Data Import--------');
 % data_prefix = 'PPE_TLS_T2_';   
 
 % [Final_data (with outlier)]
-data_path = strcat ('Final_data', filesep, 'Finaldata_1');        
-data_prefix = 'PPE_TLS_Fa_';  
-% data_path = strcat ('Final_data', filesep, 'Finaldata_2');      
-% data_prefix = 'PPE_TLS_Fb_'; 
+data_path = strcat ('Final_data', filesep, 'Finaldata_3');        
+data_prefix = 'PPE_TLS_Fb_';  
+%data_path = strcat ('Final_data', filesep, 'Finaldata_2');      
+%data_prefix = 'PPE_TLS_Fb_'; 
 
 % use filesep to represent / or \ on different operating system
 scans_path=strcat(data_path, filesep, 'Scans', filesep); 
@@ -126,10 +131,12 @@ outlier_mask= outlier_mask_rep(:); % take each coordinate measurement
 disp('---------IV. Assign initial guess of unknowns--------');
 
 % initial guess for unknown vector (APs, EPs): (4+6s x 1)
-ap_count= 4;
+ap_count= size(unknown_name,2); %vorher 4
 unknown_count = ap_count+6*scan_count; % u
 % allocate
 x_0=zeros(unknown_count, 1); % the initial value for 4 APs are assigned as 0
+
+
 
 % for each scan, estimate the initial guess of eps (To,s: the 6DOF transformation from scanner to objective coordinate system)
 for i=1:scan_count
@@ -141,6 +148,8 @@ for i=1:scan_count
    % (point_outlier_mask)
    x_0(ap_count+6*(i-1)+1:ap_count+6*(i-1)+6)=EstimateTranFromCorr(scans_in_cart{i}, ops); % using SVD (Horn, 1987)
 end
+
+
 
 disp(['Assign the initial value for [', num2str(unknown_count), '] unknowns done']);
 disp_unknown_vector(x_0,ap_count,scan_count);
@@ -232,7 +241,7 @@ while (~danish_converged && iter_count < max_ex_iter)
    
    % Judge convergence
    d_w = abs(w_vec-w_vec_last)./diag(P_mat_0);
-   if(max(d_w) < danish_converge_thre)
+   if(max(d_w) < danish_converge_thre && not(anynan(x_p)))
        danish_converged=1;
        disp('Danish method loop converged');
    end 
@@ -263,6 +272,12 @@ outliers_by_danish_method_count = size(outliers_by_danish_method,1);
 total_outlier_count=outliers_by_plausibility_check_count+outliers_by_danish_method_count;
 fprintf('[%d] outliers found, [%d] by plausibility check, [%d] by danish method\n', total_outlier_count,outliers_by_plausibility_check_count,outliers_by_danish_method_count);
 
+if anynan(x_p)
+    disp('No Valid result')
+return;
+end
+
+
 observation_status=zeros(ob_count,1);
 observation_status(outliers_by_plausibility_check)=1;
 observation_status(outliers_by_danish_method)=2;
@@ -273,7 +288,7 @@ for i=1:scan_count
 end
 
 
-unknown_name={'a0','b1','b2','c0'};
+
 for i=1:scan_count
    unknown_name = {unknown_name{:}, ['omega', num2str(i)],['phi', num2str(i)],['kappa', num2str(i)],['X', num2str(i)],['Y', num2str(i)],['Z', num2str(i)]};
 end
